@@ -1,34 +1,65 @@
-#include <vector>
-#include <iostream>
-#include <algorithm>
-#include <set>
-#include <map>
+#include <bits/stdc++.h>
 using namespace std;
 
+// pairs :
+
+// int main(){
+
+//     pair<int, int> p1 = {1, 2};
+//     cout << p1.second << endl << p1.first << endl;
+
+//     pair<int, string> p2 = {1, "Age"};
+//     cout << p2.first << endl << p2.second << endl;
+
+//     pair<int, pair<int, string>> p3 = {1, {01, "Age"}};
+//     cout << p3.first << endl << p3.second.second << endl << p3.second.first << endl;
+
+//     pair<int, int> arr[] = {{1,2}, {7,3}, {9,2}};
+//     cout << arr[1].second << endl;
+
+//     return 0;
+// }
+
+// vectors :
+
 int main(){
-    ios::sync_with_stdio(false);
-    cin.tie(NULL);
 
-    vector<int> v = {2,5,2,5,7,43,456,745,0};
-    v.push_back(2333);
-    sort(v.begin(), v.end());
-    for (int i : v){
-        cout << i << endl;
+    vector<int> v1;
+    v1.push_back(10);
+    v1.push_back(100);
+    v1.push_back(1000);
+    
+    vector<int>::iterator i = v1.begin();
+    i++;
+    cout << *i << " " << endl;
+    cout << v1[1] << endl;
+
+    cout << v1.back() << endl;
+
+    for(vector<int>:: iterator i = v1.begin(); i != v1.end(); i++ ) {
+        cout << *i << " ";
     }
+    cout << endl;
 
-    set<int> seta = {3,5,67,7, 4, 4, 5, 5};
-    seta.insert(23);
-    for (int i : seta){
-        cout << i << endl;
+    for(auto i = v1.begin(); i != v1.end(); i++){
+        cout << *i << " ";
+    }
+    cout << endl;
+
+    for(auto i : v1){
+        cout << i << " ";
+    }
+    cout << endl;
+
+
+
+    v1.erase(v1.begin()+2);
+    for(auto i : v1){
+        cout << i << " ";
 
     }
+    cout << endl;
+    
 
-    map<string, string> maps;
-    maps["name"] = "Sai";
-    maps["city"] = "Vadodara";
-    maps["age"] = "21";
-    cout << " Name is : " << maps["name"] << endl;
-    cout << " City is : " << maps["city"] << endl;
-    cout << " Age is : " << maps["age"] << endl;
-
+    return 0;
 }
