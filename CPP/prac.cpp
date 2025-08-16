@@ -1,24 +1,50 @@
 #include <bits/stdc++.h>
+#include <list>
 using namespace std;
 
 int main(){
+    list<string> l = {"a","b", "c","d"};
+    list<float> l1 = {1.1, 1.2, 1.3, 1.4};
 
-    vector<int> v1;
-    v1.push_back(1);
-    v1.emplace_back(2);
-    v1.push_back(3);
+    l.push_back("e");
+    l1.emplace_back(1.5);
 
-    vector<int>:: iterator i = v1.begin();
-    
-    i++;
-    cout << *i << endl;
-    cout << v1[0] << endl;
-    cout << v1.back() << endl;
+    l.push_front("0");
+    l1.emplace_front(1);
 
-    for(vector<int>:: iterator i = v1.begin(); i != v1.end(); i++){
-        cout << *i << " ";
+    for(auto i : l){
+        cout << i << " ";
     }
     cout << endl;
 
-return 0;
+    for (auto i :l1){
+        cout << i << " ";
+    }
+    cout << endl;
+
+    l.insert(l.begin(), "A");
+    l1.erase(l1.begin());
+
+    for(auto i : l){
+        cout << i << " ";
+    }
+    cout << endl;
+
+    for (auto i :l1){
+        cout << i << " ";
+    }
+    cout << endl;
+
+    cout << l.size() << endl;
+    cout << l1.size() << endl;
+
+    l.pop_front();
+    l1.pop_back();
+
+    for (auto i : l){
+        cout << i << " ";
+    }
+    cout << endl;
+
+    return 0;
 }
