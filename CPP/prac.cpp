@@ -1,50 +1,38 @@
 #include <bits/stdc++.h>
-#include <list>
 using namespace std;
 
-int main(){
-    list<string> l = {"a","b", "c","d"};
-    list<float> l1 = {1.1, 1.2, 1.3, 1.4};
+#define d 256  
 
-    l.push_back("e");
-    l1.emplace_back(1.5);
+void rabinKarp(string text, string pattern, int q) {
+    int n = text.size();
+    int m = pattern.size();
+    int i, j, p = 0, t = 0, h = 1;
 
-    l.push_front("0");
-    l1.emplace_front(1);
+    for (i = 0; i < m - 1; i++)
+        h = (h * d) % q;
 
-    for(auto i : l){
-        cout << i << " ";
+    for (i = 0; i < m; i++) {
+        p = (d * p + pattern[i]) % q;
+        t = (d * t + text[i]) % q;
     }
-    cout << endl;
 
-    for (auto i :l1){
-        cout << i << " ";
+    for (i = 0; i <= n - m; i++) {
+        if (p == t) {
+            for (j = 0; j < m; j++)
+                if (text[i + j] != pattern[j]) break;
+            if (j == m) cout << "Pattern found at index " << i << endl;
+        }
+        if (i < n - m) {
+            t = (d * (t - text[i] * h) + text[i + m]) % q;
+            if (t < 0) t += q;
+        }
     }
-    cout << endl;
+}
 
-    l.insert(l.begin(), "A");
-    l1.erase(l1.begin());
-
-    for(auto i : l){
-        cout << i << " ";
-    }
-    cout << endl;
-
-    for (auto i :l1){
-        cout << i << " ";
-    }
-    cout << endl;
-
-    cout << l.size() << endl;
-    cout << l1.size() << endl;
-
-    l.pop_front();
-    l1.pop_back();
-
-    for (auto i : l){
-        cout << i << " ";
-    }
-    cout << endl;
-
+int main() {
+    string text = "GEEKS FOR GEEKS";
+    string pattern = "GEEK";
+    int q = 101;
+    rabinKarp(text, pattern, q);
     return 0;
 }

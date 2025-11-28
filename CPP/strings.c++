@@ -2,16 +2,18 @@
 using namespace std;
 
 int main(){
-    ios::sync_with_stdio(false);
-    cin.tie(NULL);
+
     
-    string s = "Hello313131313";
+    string s = "Helloo";
     cout << s << endl;
-    cout << s.size() << endl;
-    cout << s.substr(0,4) << endl;
-    reverse(s.begin(), s.end());
-    cout << s << endl;
-   
+    int lenOffString = s.size();
+    cout << "Last Elememt in String is : " << s[lenOffString - 1] << endl;
+    s[lenOffString - 1] = 's';
+    cout << "Updated last Elemnt in the string : " << s[lenOffString - 1] << endl;
+
+
+    cout << "Fisrt Element is : " << s[0] << endl ;
+     cout << s << endl;
 return 0;
 
 }

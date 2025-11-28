@@ -1,0 +1,1 @@
+int lenOffArray = arr[n -1];
