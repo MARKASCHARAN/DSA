@@ -1,38 +1,31 @@
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
 
-#define d 256  
+int main(){
 
-void rabinKarp(string text, string pattern, int q) {
-    int n = text.size();
-    int m = pattern.size();
-    int i, j, p = 0, t = 0, h = 1;
+    vector<int> v1 = {1, 2, 84, 92, 13, 99, 22, 43};
+    int n = v1.size();
 
-    for (i = 0; i < m - 1; i++)
-        h = (h * d) % q;
+    vector<int> v2(2);
+    
+    bool flag = false;
 
-    for (i = 0; i < m; i++) {
-        p = (d * p + pattern[i]) % q;
-        t = (d * t + text[i]) % q;
+    for(int i = 0; i < n; i++){
+        for(int j = i + 1; j < n; j++){
+            if(v1[i] == v1[j]) {
+                v2[0] = v1[i];
+                v2[1] = v1[j];
+
+                flag = true;
+            } 
+        }
+
+        
     }
 
-    for (i = 0; i <= n - m; i++) {
-        if (p == t) {
-            for (j = 0; j < m; j++)
-                if (text[i + j] != pattern[j]) break;
-            if (j == m) cout << "Pattern found at index " << i << endl;
-        }
-        if (i < n - m) {
-            t = (d * (t - text[i] * h) + text[i + m]) % q;
-            if (t < 0) t += q;
-        }
-    }
-}
+    cout << 
 
-int main() {
-    string text = "GEEKS FOR GEEKS";
-    string pattern = "GEEK";
-    int q = 101;
-    rabinKarp(text, pattern, q);
+    
+
     return 0;
 }

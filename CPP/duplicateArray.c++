@@ -3,9 +3,9 @@
 using namespace std;
 
 int main(){
+
     vector<int> v1 = { 23, 0, 34, 23, 1};
     int n = v1.size();
-
     vector<int> v2(2);
 
     for(int i = 0; i < n; i++){
@@ -15,11 +15,10 @@ int main(){
                 v2[1] = v1[j];
 
                 cout << v2[0] << " " << v2[1] << endl;
-                
                 return 0;
             }
         }       
-        }
+    }
         
 
     return 0;
